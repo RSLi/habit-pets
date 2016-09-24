@@ -7,6 +7,7 @@ class Users_model extends CI_Model {
         * Required Fields:
         *                   int     uid
         *                   varchar username
+        *                   varchar email
         *                   varchar password
         *                   date    lastlogin
         *                   text    json
@@ -17,7 +18,7 @@ class Users_model extends CI_Model {
             "username" : "John Doe",
             "petname" : "Pet Sue",
             "level" : 2,
-            "exp_to_next_level" : 50,
+            "exp" : 50,
             "food" : 50,
             "health" : 60,
             "happiness" : 75,
@@ -65,9 +66,9 @@ class Users_model extends CI_Model {
         */
         public function get_user_info_all_json($uid)
         {
-            $query = get_user_info_all($uid);
+            $query = $this->get_user_info_all($uid);
             $row = $query->row_array();
-            $djson = json_decode($row['json']);
+            $djson = json_decode($row['json'], true);
             $uarr = array('username' => $row['username']);
             $result = array_merge($djson, $uarr);
             $udata = json_encode($result);
@@ -77,7 +78,7 @@ class Users_model extends CI_Model {
         public function update_user_info_all_json($uid, $udata)
         {
             $data = array(
-                'json' => $udata;
+                'json' => $udata
             );
             $this->db->where('uid',$uid);
             $this->db->update('users',$data);

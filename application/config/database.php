@@ -98,9 +98,9 @@ $db['default'] = array(
 $db['test'] = array(
 	'dsn'	=> '',
 	'hostname' => 'localhost',
-	'username' => '',
-	'password' => '',
-	'database' => '',
+	'username' => 'root',
+	'password' => 'root',
+	'database' => 'habitpets',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
@@ -126,7 +126,7 @@ $db['production'] = array(
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
-	'db_debug' => (ENVIRONMENT !== 'production'),
+	'db_debug' => (ENVIRONMENT !== 'production'), //TODO: We are not changing the ENV var in index.php right now
 	'cache_on' => FALSE,
 	'cachedir' => '',
 	'char_set' => 'utf8',

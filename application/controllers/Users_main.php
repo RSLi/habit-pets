@@ -7,7 +7,7 @@ class Users_main extends CI_Controller
 		parent::__construct();
 		$this->load->model('users_model');
 	}
-	
+
 	public function index()
 	{
 		//load
@@ -24,7 +24,7 @@ class Users_main extends CI_Controller
 				//validate log-in form
 				$this->load->helper('form');
 				$this->load->library('form_validation');
-				
+
 				$this->form_validation->set_rules('email', 'Email', 'required|valid_email');
 				$this->form_validation->set_rules('password', 'Password', 'required');
 				if ($this->form_validation->run() == FALSE)//form not validated
@@ -32,14 +32,14 @@ class Users_main extends CI_Controller
 					$data['has_error'] = TRUE;
 					$data['error_msg'] = validation_errors();
 					$data['title'] = 'Home';
-					
+
 					$this->load->view('templates/header',$data);
 					$this->load->view('pages/home',$data);
 					$this->load->view('templates/footer');
 				}
 				else//form validated
 				{
-					
+
 					//connect to database to judge user information
 					$sql = "SELECT * FROM users WHERE email = ?";
 					$query = $this->db->query($sql,array($_POST['email']));
@@ -48,7 +48,7 @@ class Users_main extends CI_Controller
 						$data['has_error'] = TRUE;
 						$data['error_msg'] = 'This is not a valid user in the database. Please try again.';
 						$data['title'] = 'Home';
-							
+
 						$this->load->view('templates/header',$data);
 						$this->load->view('pages/home',$data);
 						$this->load->view('templates/footer');
@@ -58,7 +58,7 @@ class Users_main extends CI_Controller
 						$data['has_error'] = TRUE;
 						$data['error_msg'] = 'Password incorrect';
 						$data['title'] = 'Home';
-							
+
 						$this->load->view('templates/header',$data);
 						$this->load->view('pages/home',$data);
 						$this->load->view('templates/footer');
@@ -70,27 +70,29 @@ class Users_main extends CI_Controller
 						$_SESSION['email'] = $query->row(0)->email;
 						$_SESSION['username'] = $this->security->xss_clean($query->row(0)->username);
 						//view
+						$data['udata'] = $this->users_model->get_user_info_all_json($_SESSION['uid']);
 						$data['title'] = 'Home';
 						$this->load->view('templates/header',$data);
 						$this->load->view('loggedin/main',$data);
 						$this->load->view('templates/footer');
 					}
-					
+
 				}
 			}
 		}
-		else 
+		else // if already logged in
 		{
 			//view
+			$data['udata'] = $this->users_model->get_user_info_all_json($_SESSION['uid']);
 			$data['title'] = 'Home';
 			$this->load->view('templates/header',$data);
 			$this->load->view('loggedin/main',$data);
 			$this->load->view('templates/footer');
-			
-			
+
+
 		}
 	}
-	
+
 	function logout()
 	{
 		$this->load->helper('url');
@@ -98,19 +100,19 @@ class Users_main extends CI_Controller
 		session_destroy();
 		redirect('', 'refresh');
 	}
-	
+
 	public function please_log_in()
 	{
 		$this->load->view('loggedin/please_log_in');
 	}
-	
-	
+
+
 	public function forget_password()
 	{
 		$email = filter_var($_POST['email'], FILTER_VALIDATE_EMAIL);
 		$this->users_model->forget_password($email);
 		redirect('', 'refresh');
 	}
-	
+
 }
 //end of file

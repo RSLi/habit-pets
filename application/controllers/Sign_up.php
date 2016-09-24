@@ -51,10 +51,41 @@ class Sign_up extends CI_Controller
 			}
 			else
 			{
+				$default_json = '{
+		            "petname" : "Cute Puppy",
+		            "level" : 1,
+		            "exp" : 5,
+		            "food" : 70,
+		            "health" : 70,
+		            "happiness" : 90,
+		            "gold" : 10,
+
+		            "tasks" : [
+		                {"name" : "Brush Teeth", "type" : "dailies", "completed" : false, "difficulty" : 1, "reward" : "health"},
+		                {"name" : "Exercise 1 hour", "type" : "dailies", "completed" : false, "difficulty" : 1, "reward" : "health"},
+		                {"name" : "Eat no junk food", "type" : "dailies", "completed" : false, "difficulty" : 1, "reward" : "health"},
+		                {"name" : "Pack your backpack", "type" : "dailies", "completed" : true, "difficulty" : 1, "reward" : "food"},
+		                {"name" : "Finish all Homework", "type" : "dailies", "completed" : false, "difficulty" : 2, "reward" : "food"},
+		                {"name" : "Do chores", "type" : "dailies", "completed" : false, "difficulty" : 1, "reward" : "happiness"},
+		                {"name" : "Offer help to someone", "type" : "dailies", "completed" : false, "difficulty" : 3, "reward" : "happiness"},
+		                {"name" : "Finish Math Group Project", "type" : "todo", "completed" : false, "difficulty" : 2, "reward" : "food"},
+		                {"name" : "Purchase school supply", "type" : "todo", "completed" : false, "difficulty" : 1, "reward" : "happiness"},
+		                {"name" : "Help clean the yard", "type" : "todo", "completed" : false, "difficulty" : 3, "reward" : "happiness"},
+		                {"name" : "Attend school sport events", "type" : "todo", "completed" : false, "difficulty" : 2, "reward" : "health"}
+		            ],
+
+
+		            "items" : [
+		                {"name" : "breadstick", "type" : "food", "value" : 10},
+		                {"name" : "breadstick", "type" : "food", "value" : 10}
+		            ]
+		        }';
 				//insert new account
-				$sql = "INSERT INTO users VALUES (?,?,?,?,?,?,?,?)";
-				$query = $this->db->query($sql,array(null,$_POST['username'],password_hash($_POST['password'], PASSWORD_BCRYPT),$_POST['email'],0,0,'this is a test user',0));
+				$sql = "INSERT INTO users VALUES (?,?,?,?,?,?)";
+				$query = $this->db->query($sql,array(null,$_POST['username'],password_hash($_POST['password'], PASSWORD_BCRYPT),$_POST['email'],null,$default_json));
 				//log the user in
+
+				//TODO: log the user in immediately after registration
 
 				//show success
 				$data['has_error'] = FALSE;

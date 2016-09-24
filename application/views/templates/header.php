@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title><?php echo $title?> | Habit Pets</title>
-        <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.min.css">
 
         <script type="text/javascript" src="/vendor/jquery/jquery.js"></script>
         <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
@@ -40,7 +40,7 @@
 		                <span class="icon-bar"></span>
 		                <span class="icon-bar"></span>
 		            </button>
-                  <a class="navbar-brand" href="<?php echo site_url('home')?>">HabitPets</a>
+                  <a class="navbar-brand" href="<?php echo site_url('')?>">HabitPets</a>
                 </div>
                 <div id="navbarCollapse" class="collapse navbar-collapse">
                   <ul class="nav navbar-nav navbar-right">
