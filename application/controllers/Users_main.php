@@ -124,5 +124,10 @@ class Users_main extends CI_Controller
 		redirect('', 'refresh');
 	}
 
+	public function reset_all_user_day($ps)
+	{
+		
+	}
+
 }
 //end of file
