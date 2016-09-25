@@ -33,6 +33,8 @@ function udata_post() {
     hiddenField.setAttribute("value", JSON.stringify(udata));
     form.appendChild(hiddenField);
     document.body.appendChild(form);
+    alert(JSON.stringify(udata));
+
     form.submit();
 }
 
