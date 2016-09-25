@@ -7,7 +7,8 @@ body {
 </style>
 
 <script>
-	var udata = <?php echo $udata?>;
+	udata = <?php echo $udata?>;
+	path = "<?php echo site_url('users_main/update_json')?>";
 </script>
 
 
@@ -103,9 +104,9 @@ body {
 
 			<form class="form-inline">
 				<div class="input-group" style="font-size:12pt;height:30px;width:390px;">
-				  <input type="text" class="form-control" id="form" placeholder="Add More">
+				  <input type="text" class="form-control" id="input-form-add-dailies-food" placeholder="Add More">
 				  <span class="input-group-btn">
-					<button class="btn btn-default" type="submit" onclick="post">Go!</button>
+					<button id="btn-form-add-dailies-food" class="btn btn-default">Go!</button>
 				  </span>
 				</div>
 			</form>
@@ -125,9 +126,9 @@ body {
 
 			<form class="form-inline">
 				  <div class="input-group" style="font-size:12pt;height:30px;width:390px;">
-					<input type="text" class="form-control" placeholder="Add More" id="form">
+					<input type="text" class="form-control" placeholder="Add More" id="input-form-add-dailies-health">
 					<span class="input-group-btn">
-					  <button class="btn btn-default" type="submit" onclick="post">Go!</button>
+					  <button id="btn-form-add-dailies-health" class="btn btn-default">Go!</button>
 					</span>
 				  </div>
 			 </form>
@@ -146,9 +147,9 @@ body {
 		  <div class="panel-body">
 			<form class="form-inline">
 			  <div class="input-group" style="font-size:12pt;height:30px;width:390px;">
-				<input type="text" class="form-control" placeholder="Add More" id="form">
+				<input type="text" class="form-control" placeholder="Add More" id="input-form-add-dailies-happiness">
 				<span class="input-group-btn">
-				  <button class="btn btn-default" type="submit" onclick="post">Go!</button>
+				  <button id="btn-form-add-dailies-happiness" class="btn btn-default">Go!</button>
 				</span>
 			  </div>
 
@@ -205,15 +206,15 @@ body {
 		   <form>
 			 <div class="form-group">
 			   <label>Task name:</label>
-			   <input class="form-control" id="addtaskname" placeholder="Please enter your new task here">
+			   <input class="form-control" id="input-form-add-todo" placeholder="Please enter your new task here">
 			 </div>
 
 			 <div class="form-group">
 			   <label for="sel1">Reward: (please select one)</label>
-				 <select class="form-control" id="sel1">
-				   <option>Food</option>
-				   <option>Health</option>
-				   <option>Happiness</option>
+				 <select id="select-form-add-todo" class="form-control" id="sel1">
+				   <option value="food">Food</option>
+				   <option value="health">Health</option>
+				   <option value="happiness">Happiness</option>
 				 </select>
 			 </div>
 
@@ -222,7 +223,7 @@ body {
 
 
 		 <div class="modal-footer">
-		 <button type="submit" class="btn btn-default">Submit</button>
+		 <button id="btn-form-add-todo" class="btn btn-default">Submit</button>
 		 </div>
 	 </div>
 
@@ -243,5 +244,5 @@ body {
   </div>
 </div>
 
-<script src="/js/form_util.js"></script>
+<script src="/js/udata_json_util.js"></script>
 <script src="/js/udata_process.js"></script>
