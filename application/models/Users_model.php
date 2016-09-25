@@ -17,6 +17,7 @@ class Users_model extends CI_Model {
         {
             "username" : "John Doe",
             "petname" : "Pet Sue",
+            "avatar" : "default",
             "level" : 2,
             "exp" : 50,
             "food" : 50,

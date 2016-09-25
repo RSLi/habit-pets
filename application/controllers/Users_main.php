@@ -114,5 +114,15 @@ class Users_main extends CI_Controller
 		redirect('', 'refresh');
 	}
 
+	public function update_json()
+	{
+		if(!isset($_SESSION['uid']) || !isset($_POST['udata']))
+		{
+			redirect('', 'refresh');
+		}
+		$this->users_model->update_user_info_all_json($_SESSION['uid'], $_POST['udata']);
+		redirect('', 'refresh');
+	}
+
 }
 //end of file

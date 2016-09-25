@@ -8,6 +8,7 @@
 
         <script type="text/javascript" src="/vendor/jquery/jquery.js"></script>
         <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
+        <script src="https://use.fontawesome.com/171bfd2198.js"></script>
 
         <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
 		<link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
