@@ -99,17 +99,19 @@ body {
 	<div class="col-md-4 threeSection">
 	   <h3>Daily Task</h3>
 	  <div class="panel panel-success">
-		  <div class="panel-heading" style="height:40px;"><h4>Food</h4></div>
+		  <div class="panel-heading" style="height:40px;"><span>Food</span><button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#myModal" style="float:right">
+   		 <span class="glyphicon glyphicon-plus-sign"></span>
+   	   </button></div>
 		  <div class="panel-body" >
 
-			<form class="form-inline">
+			<!-- <form class="form-inline">
 				<div class="input-group" style="font-size:12pt;height:30px;width:390px;">
 				  <input type="text" class="form-control" id="input-form-add-dailies-food" placeholder="Add More">
 				  <span class="input-group-btn">
 					<button id="btn-form-add-dailies-food" class="btn btn-default">Go!</button>
 				  </span>
 				</div>
-			</form>
+			</form> -->
 
 
 
@@ -124,7 +126,7 @@ body {
 		  <div class="panel-heading" style="height:40px;"><h4>Health</h4></div>
 		  <div class="panel-body">
 
-			<form class="form-inline">
+			<!-- <form class="form-inline">
 				  <div class="input-group" style="font-size:12pt;height:30px;width:390px;">
 					<input type="text" class="form-control" placeholder="Add More" id="input-form-add-dailies-health">
 					<span class="input-group-btn">
@@ -132,7 +134,7 @@ body {
 					</span>
 				  </div>
 			 </form>
-
+ -->
 
 	  <ul class="list-group" id='try2'>
 	  </ul>
@@ -145,7 +147,7 @@ body {
   <div class="panel panel-primary">
 		  <div class="panel-heading" style="height:40px;"><h4>Happiness</h4></div>
 		  <div class="panel-body">
-			<form class="form-inline">
+			<!-- <form class="form-inline">
 			  <div class="input-group" style="font-size:12pt;height:30px;width:390px;">
 				<input type="text" class="form-control" placeholder="Add More" id="input-form-add-dailies-happiness">
 				<span class="input-group-btn">
@@ -153,7 +155,7 @@ body {
 				</span>
 			  </div>
 
-			</form>
+			</form> -->
 
 
 	  <ul class="list-group" id='try3'>
@@ -210,8 +212,16 @@ body {
 			 </div>
 
 			 <div class="form-group">
-			   <label for="sel1">Reward: (please select one)</label>
-				 <select id="select-form-add-todo" class="form-control" id="sel1">
+			   <label for="select-form-add-task">Type: (please select one)</label>
+				 <select id="select-form-add-task" class="form-control">
+				   <option value="todo">To-do Task</option>
+				   <option value="dailies">Daily Task</option>
+				 </select>
+			 </div>
+
+			 <div class="form-group">
+			   <label for="select-form-add-todo">Reward: (please select one)</label>
+				 <select id="select-form-add-todo" class="form-control">
 				   <option value="food">Food</option>
 				   <option value="health">Health</option>
 				   <option value="happiness">Happiness</option>

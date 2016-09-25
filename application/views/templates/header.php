@@ -51,6 +51,7 @@
 		                		<span class="glyphicon glyphicon-user"></span><?php echo $_SESSION['username']?><span class="caret"></span>
 		                	</a>
 					          <ul class="dropdown-menu">
+                                <li><a onclick="udata_reset_dailies()">Reset Day</a></li>
 					            <li><a href="<?php echo site_url('users_main/logout')?>">Log out</a></li>
 
 					          </ul>

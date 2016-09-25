@@ -8,28 +8,29 @@ document.getElementById("happiness-progress").innerHTML = udata.happiness+ "%";
 
 document.getElementById("btn-form-add-todo").addEventListener("click", function(){
     var name = document.getElementById("input-form-add-todo").value;
+    var type = document.getElementById("select-form-add-task").value;
     var reward = document.getElementById("select-form-add-todo").value;//food, health, or happiness
-    udata_create_todo_from_form(name, reward);
+    udata_add_task(name,type,reward);
     udata_post();
 });
 
-document.getElementById("btn-form-add-dailies-food").addEventListener("click", function(){
-    var name = document.getElementById("input-form-add-dailies-food").value;
-    udata_create_dailies_from_form(name,"food");
-    udata_post();
-});
-
-document.getElementById("btn-form-add-dailies-health").addEventListener("click", function(){
-    var name = document.getElementById("input-form-add-dailies-health").value;
-    udata_create_dailies_from_form(name,"health");
-    udata_post();
-});
-
-document.getElementById("btn-form-add-dailies-happiness").addEventListener("click", function(){
-    var name = document.getElementById("input-form-add-dailies-happiness").value;
-    udata_create_dailies_from_form(name,"happiness");
-    udata_post();
-});
+// document.getElementById("btn-form-add-dailies-food").addEventListener("click", function(){
+//     var name = document.getElementById("input-form-add-dailies-food").value;
+//     udata_create_dailies_from_form(name,"food");
+//     udata_post();
+// });
+//
+// document.getElementById("btn-form-add-dailies-health").addEventListener("click", function(){
+//     var name = document.getElementById("input-form-add-dailies-health").value;
+//     udata_create_dailies_from_form(name,"health");
+//     udata_post();
+// });
+//
+// document.getElementById("btn-form-add-dailies-happiness").addEventListener("click", function(){
+//     var name = document.getElementById("input-form-add-dailies-happiness").value;
+//     udata_create_dailies_from_form(name,"happiness");
+//     udata_post();
+// });
 
 $(document).ready(function(){
     $("#exp-progress").css("width", udata.exp+ "%");
