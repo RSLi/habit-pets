@@ -108,12 +108,17 @@ function udata_add_exp(value) {
     udata.exp += value;
 }
 
-function udata_reset_dailies() {
+function udata_next_day() {
+    //Reset daily tasks
     for(var i=0; i<udata.tasks.length; i++){
         if(udata.tasks[i].type == "dailies") {
             udata.tasks[i].completed = false;
         }
     }
+    udata.gold += udata.level * 10; //pocket money based on level
+    udata.food -= 40;
+    udata.health -= 30;
+    udata.happiness -= 20;
     udata_post();
 }
 
