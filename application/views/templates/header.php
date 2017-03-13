@@ -7,6 +7,7 @@
         <link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.min.css">
 
         <script type="text/javascript" src="/vendor/jquery/jquery.js"></script>
+        <script type="text/javascript" src="/node_modules/underscore/underscore.min.js"></script>
         <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
         <script src="https://use.fontawesome.com/171bfd2198.js"></script>
 
